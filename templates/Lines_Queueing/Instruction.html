@@ -8,64 +8,51 @@
 {% block content %}
 
 <p>
-In this experiment, you will interact with other players in multiple rounds. 
-In each round, you will be grouped randomly and anonymously with several other participants and will be “standing in a line” with others, waiting to be “served”. 
-Each participant has three possible statuses: “waiting in the line”, “in service”, and “served”. 
+In this experiment, you will interact with other participants in multiple rounds. 
+    In each round, you will be grouped randomly and anonymously with several other participants and will be “standing in a line” with others, waiting to be “served”. 
+    The user interface looks as follows.
+</p>
+
+<img class="center-fit" src="{% static "queue_ui.PNG" %}"/>
+
+{% block styles %}
+    <style>
+    	.center-fit {
+    		max-width: 100%;
+            max-height: 100vh;
+            margin: auto;
+    	}
+    </style>
+{% endblock %}
+
+<p>
+The line of circles shows the current status of the “line”. 
+    The initial order of the circles in the line will be determined randomly at the beginning of each round. 
+    The number of circles shows the number of participants in your group. Your position is marked in black. 
+    The line is divided into three parts which correspond to participants’ status: “waiting in line” (left), “service room” (middle), and “service finished” (right). 
+    E.g. in the screenshot above, we have 5 participants “waiting in line”, 1 participant is in the “service room”, and nobody is under “service finished”.
 </p>
 
 <p>
-At the beginning of each round, you will get some amount (in points) of initial endowment E. 
-You will also receive some value V after you complete your service. 
-However, as in real life, waiting in line is costly. 
-You will lose C points for every person who is served before you. 
-This will represent the cost of waiting.
+At the beginning of each round, every participant is “waiting in line” and they can exchange positions with participants next to them under specific rules (details will be mentioned before you start the experiment). 
+    Depending on the rule, different buttons will be visible under the person immediately in front of you. 
+    In the screenshot above, you are the 2nd person in the line (the black circle) and you can see two buttons under the 1st person in the line.
 </p>
 
 <p>
-The order of the line will be determined randomly at the beginning of each round. 
-The round will be divided into several periods, where each period encompasses one player’s service turn. 
-At the beginning of each round (the first period starts), every participant is “waiting in the line” and they can start to exchange positions with the participants immediately next to them. 
-Depending on the rule, different buttons will be visible under the person immediately in front of you. 
-If the button is grey, this means the person you are trying to interact with is already interacting with the person in front of them; otherwise, you may initiate an interaction with said person. 
+After 20 seconds, the front participant in the line will go to the “service room” while others remain in the line. 
+    Participants can continue to exchange positions. 
+    The line will move forward every 20 seconds and the round ends when all participants have finished the service. 
+    Participants who have finished their service will be placed under the “service finished” zone.
 </p>
 
 <p>
-Participants can exchange positions with others under specific rules (detailed in the next section). 
-At the end of the first period, the first participant in the line will go to the service room, others remain in the line and the second period will start. 
-The service for each participant will take one period (20 seconds) and the round ends when all participants have finished the service.
+If you exchange positions and move forward, you may lose some transfers depending on the rule and will earn C (your waiting cost, will explain in the next page) since your total waiting time decreases. 
+    If you exchange positions and move backward, you may gain some transfers depending on the rule and will lose C since your total waiting time increases. 
+    Participants can only be involved in one exchange at a time, if you are involved in an exchange, you cannot receive exchange requests from other participants. 
+    Similarly, you cannot exchange with participants who are currently in an exchange (their buttons will turn grey).
 </p>
 
-<p>
-Your payoff in each round will be given by <b> E + V - (n-1)*C + T </b>, where n is the order or place in which you are served. 
-For the first to be served n=1, for the second to be served n=2, and so on. 
-<b>T (trade)</b> is the sum of all transfers you receive minus all transfers you make from trading or exchanging places with others. 
-Under some rules, you cannot trade money with other participants, so T will be 0 under those rules.
-</p>
-
-<p>
-<b>E (Endowment)</b> is the value you have at the beginning of each round. 
-<b>V (Value)</b> is the value of the service, which will be applied to a player’s point total only after they have finished their service turn. 
-<b>C (Cost)</b> is the time cost per period which will be deducted from a player’s point total after each period they participate in that does not send them to the service room.	
-This cost C will be different for different people and even for the same person in different rounds. 
-C will be determined randomly for each player in each round. 
-At the beginning of each round, your C will be revealed to you on your screen.
-
-Each person’s C is private information to them. No one else will know your C and you will not be informed of anyone else’s C.  
-E and V are the same for everyone in your group.
-</p>
-
-<p>
-In some rounds, you may be allowed to use a chatbox to send a text message with your offer price (or exchange request).
-    The chatbox allows you to freely text your message.
-    However, you will be permanently removed from our subject pool if you use profanity or hateful language. 
-    This type of messages can be detected from our dataset.
-    You should also respect others' privacy and not share your own private information.
-</p>
-    
-<p>
-You can only be involved in one offer (or exchange request) at a time. 
-If you are involved in an offer, you cannot receive an offer from other participants. 
-Similarly, you cannot trade with participants who are currently in an offer.
-</p>
+{% next_button %}
 
 {% endblock %}

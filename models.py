@@ -195,7 +195,7 @@ class Player(BasePlayer):
               
     quiz5 = models.StringField(
         choices=[
-            'You get c since N is decreased by 1',
+            'You get C since n is decreased by 1',
             'You do not have any benefit',
             'You get V immediately if you move forward'
         ],
@@ -204,7 +204,7 @@ class Player(BasePlayer):
     )
 
     def quiz5_error_message(self, value):
-        if value != 'You get c since N is decreased by 1':
+        if value != 'You get C since n is decreased by 1':
             return 'This is the wrong answer. Please choose the correct one.'
         
     # quiz for TILI treatment

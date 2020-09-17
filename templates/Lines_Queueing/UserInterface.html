@@ -7,10 +7,6 @@
 
 {% block content %}
 
-<p>
-Below shows the user interface of the experiment. The interface includes two panels:
-</p>
-
 <img class="center-fit" src="{% static "queue_ui.PNG" %}"/>
 
 {% block styles %}
@@ -24,31 +20,36 @@ Below shows the user interface of the experiment. The interface includes two pan
 {% endblock %}
 
 <p>
-Upper panel shows the parameters and information of current round:
-</p>
-
+Your payoff in each round will be given by E + V - (n-1)*C + T.
 <ul>
-  <li>The first column shows the current round number. </li>
-  <li>The second column shows your own information: the value of service V, and your waiting cost C per period.</li>
-  <li>The third column shows the round information: Double\Swap\Take/Leave\Token, Communication\No Communication (You might only see some of them today)</li>
-  <li>The fourth column shows your current payoff.</li>
-  <li>The last column shows the remaining time in the current round (not the current period, notice the line will move forward during each round).
-      It is possible that the system has a few seconds lagging based on the quality of your internet connection.
-      As a result, your round may end when the remaining time is still positive. But it is guaranteed that everyone ends the round and each period in the round at the same time.</li>
+  <li>E (Endowment) is the value you own at the beginning of each round.</li>
+  <li>V (Value) is the value of the service you get after you enter the service room.</li>
+  <li>n is your final position in the line in which you are served.</li>
+  <li>C (Cost) is the waiting cost. 
+      Whenever someone enters the service room, C will be deducted from your round payoff if you are still in the waiting line. 
+      At the beginning of each round, C will be determined randomly for each participant. 
+      No one else will know your C and you will not be informed of anyone else’s C. 
+  </li>
+  <li>T (Transfer) is the total transfer you make from exchanging positions with others during the round, which depends on the rule you play.</li>
 </ul>
+</p>
 
 <p>
-Lower panel shows the information of current waiting line and participants’ status:
-</p>
-
+The upper panel of the user interface shows the parameters and information of current round, including:
 <ul>
-  <li>The number of circles shows the number of players in your group. Your position is marked in black.</li>
-  <li>The line is divided into three parts which correspond to participants’ status: “waiting in the line”(left), “being served”(middle), and “service finished”(right).</li>
-  <li>The button on the bottom of each participants’ circle shows how you can interact with them. (not shown on the figure but you will see it in the game)</li>
+  <li>Round number, Endowment E, service value V,  waiting cost C, and current payoff.</li>
+  <li>Exchange rule, whether communication is allowed, and service time (how fast the line moves forward).</li>
+  <li>Remaining time. It is possible that the system has a few seconds lagging based on the quality of your internet connection. 
+      As a result, your round may end when the remaining time is still positive. </li>
 </ul>
+</p>
 
 <p>
 At the end of each round, you can review your game history from the previous round on your result page.
+</p>
+
+<p>
+If you finish reading, please raise your hand by clicking the blue icon in the Zoom room under "participant" section and wait for the host to advance the page.
 </p>
 
 {% endblock %}

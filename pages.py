@@ -278,7 +278,7 @@ class QueueService(Page):
 
 # round debrief, displayed after queue service page. Has no specific data yet
 class BetweenPages(Page):
-    #timeout_seconds = 30
+    timeout_seconds = 20
     
     form_model = 'player'
     form_fields = ['time_BP']

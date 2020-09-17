@@ -11,23 +11,21 @@
 <h4>Basic ideas of the experiment</h4>
 <ul>
   <li>In each round, you will be grouped randomly and anonymously with several other participants. 
-Each participant has three possible statuses: “waiting in the line”, “in service”, and “served”.  </li>
-  <li>The round will be divided into several periods, where each period encompasses one player’s service turn. At the beginning of each round (the first period starts), 
-      every participant is “waiting in the line” and they can start to exchange positions with the participants immediately next to them. </li>
-  <li>You cannot interact with someone who is already interacting with the person in front of them; otherwise, you may initiate an interaction with said person. </li>
-  <li>At the end of the first period, the first participant in the line will go to the service room, others remain in the line and the second period will start. 
-The service for each participant will take one period (20 seconds) and the round ends when all participants have finished the service. </li>
+      Each participant has three possible statuses: “waiting in the line”, “serivce room”, and “service finished”.  </li>
+  <li>At the beginning of each round, every participant is “waiting in the line” and they can start to exchange positions with the participants next to them. </li>
+  <li>The line moves forward every 20 seconds where the front participant goes to the "service room" and others remain in the line and can continue to exchange positions</li>
+  <li>Participants can only be involved in one exchange at a time. So you cannot interact with someone who is already interacting with others</li>
 </ul>
-
 
 <h4>How your payoff is calculated</h4>
 <ul>
-  <li>Your payoff in each round will be given by <b> E + V - (n-1)*C + T </b>, where n is the order or place in which you are served.  </li>
-  <li><b>E (Endowment)</b> is the value you have at the beginning of each period.  </li>
-  <li><b>V (Value)</b> is the value of the service, which will be applied to a player’s point total only after they have finished their service turn. </li>
-  <li><b>C (Cost)</b> is the time cost per period which will be deducted from a player’s point total after each period they participate in that does not send them to the service room.	
-C will be determined randomly for each player in each period. </li>
-  <li><b>T (trade)</b> is the sum of all transfers you receive minus all transfers you make from trading or exchanging places with others under some rules. </li>
+  <li>Your payoff in each round will be given by <b> E + V - (n-1)*C + T </b> </li>
+  <li><b>E (Endowment)</b> is the value you own at the beginning of each period.  </li>
+  <li><b>V (Value)</b> is the value of the service you get after you enter the service room. </li>
+  <li><b>n</b> is your final position in the line in which you are served. </li>
+  <li><b>C (Cost)</b> is your waiting cost. Whenever someone enters the service room, you will lose C if you are still in the waiting line.	
+      C will be determined randomly for each participant in each round. </li>
+  <li><b>T (Transfer)</b> is the sum of all transfers you receive minus all transfers you make from exchanging positions with others under some rules. </li>
 </ul>
 
 {% endblock %}
